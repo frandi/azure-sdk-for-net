@@ -1,5 +1,9 @@
 # Release History
 
+## 1.0.0-poly.1 (Internal release)
+
+### Modify ContainerGroupData constructor
+
 ## 1.0.0-beta.2 (Unreleased)
 
 ### Features Added

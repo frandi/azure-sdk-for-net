@@ -21,8 +21,9 @@ namespace Azure.ResourceManager.ContainerInstance
         /// <param name="location"> The location. </param>
         /// <param name="containers"> The containers within the container group. </param>
         /// <param name="osType"> The operating system type required by the containers in the container group. </param>
+        /// <param name="imageRegistryCredentials"> The image registry credentials by which the container group is created from. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="containers"/> is null. </exception>
-        public ContainerGroupData(AzureLocation location, IEnumerable<ContainerInstanceContainer> containers, ContainerInstanceOperatingSystemType osType) : base(location)
+        public ContainerGroupData(AzureLocation location, IEnumerable<ContainerInstanceContainer> containers, ContainerInstanceOperatingSystemType osType, IList<ContainerGroupImageRegistryCredential> imageRegistryCredentials = null) : base(location)
         {
             if (containers == null)
             {
@@ -30,7 +31,7 @@ namespace Azure.ResourceManager.ContainerInstance
             }
 
             Containers = containers.ToList();
-            ImageRegistryCredentials = new ChangeTrackingList<ContainerGroupImageRegistryCredential>();
+            ImageRegistryCredentials = imageRegistryCredentials ?? new ChangeTrackingList<ContainerGroupImageRegistryCredential>();
             OSType = osType;
             Volumes = new ChangeTrackingList<ContainerVolume>();
             SubnetIds = new ChangeTrackingList<ContainerGroupSubnetId>();
