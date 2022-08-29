@@ -1,5 +1,9 @@
 # Release History
 
+## 1.0.0-poly.2 (Internal release)
+
+### Modify ContainerInstanceContainer constructor
+
 ## 1.0.0-poly.1 (Internal release)
 
 ### Modify ContainerGroupData constructor
